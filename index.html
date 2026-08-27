@@ -759,6 +759,13 @@ a.is-placeholder-link{
   font-size: 12px;
   color: var(--text-faint);
   letter-spacing: 0.04em;
+  overflow: hidden;
+}
+.project-visual img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-body{
@@ -1301,10 +1308,6 @@ a.is-placeholder-link{
 
       <div class="stats-grid scroll-reveal">
         <div class="stat-card">
-          <div class="stat-value">6.99<span class="unit">/10</span></div>
-          <div class="stat-label">CGPA</div>
-        </div>
-        <div class="stat-card">
           <div class="stat-value">2</div>
           <div class="stat-label">Internships Completed</div>
         </div>
@@ -1376,19 +1379,19 @@ a.is-placeholder-link{
         <div class="skill-card-top"><h4>VAPT</h4><span class="cat-tag">Cybersecurity</span></div>
         <p>Vulnerability Assessment &amp; Penetration Testing, applied during the same internship.</p>
       </div>
-      <div class="skill-card placeholder" data-category="cybersecurity">
-        <div class="skill-card-top"><h4>[ADD TOOLS]</h4><span class="cat-tag">Cybersecurity</span></div>
-        <p>e.g. Nmap, Wireshark, Burp Suite — add the specific tools you used.</p>
+      <div class="skill-card" data-category="cybersecurity">
+        <div class="skill-card-top"><h4>Cybersecurity Tools</h4><span class="cat-tag">Cybersecurity</span></div>
+        <p>Nmap, Wireshark — used for network scanning and traffic analysis.</p>
       </div>
 
-      <div class="skill-card placeholder" data-category="web">
-        <div class="skill-card-top"><h4>[ADD WEB SKILLS]</h4><span class="cat-tag">Web Development</span></div>
-        <p>e.g. HTML, CSS, JavaScript — add what you've actually built with.</p>
+      <div class="skill-card" data-category="web">
+        <div class="skill-card-top"><h4>Web Skills</h4><span class="cat-tag">Web Development</span></div>
+        <p>HTML, CSS, JavaScript.</p>
       </div>
 
-      <div class="skill-card placeholder" data-category="cloud">
-        <div class="skill-card-top"><h4>[ADD TOOLS]</h4><span class="cat-tag">Cloud / Tools</span></div>
-        <p>e.g. Git, GitHub, AWS, VS Code — add your actual toolchain.</p>
+      <div class="skill-card" data-category="cloud">
+        <div class="skill-card-top"><h4>Tools &amp; Cloud</h4><span class="cat-tag">Cloud / Tools</span></div>
+        <p>Git, GitHub, AWS, VS Code.</p>
       </div>
     </div>
   </div>
@@ -1415,7 +1418,7 @@ a.is-placeholder-link{
 
       <!-- Melanoma Detection — real project -->
       <div class="project-card" data-category="ai-ml">
-        <div class="project-visual">[ PROJECT SCREENSHOT PLACEHOLDER ]</div>
+        <div class="project-visual"><img src="images/skin-cancer-demo.png" alt="Melanoma Skin Cancer Detection project screenshot" loading="lazy"></div>
         <div class="project-body">
           <h4>Melanoma Skin Cancer Detection</h4>
           <p>A CNN-based deep learning system for detecting melanoma from skin lesion images, with a web-based interface for uploading and viewing predictions.</p>
@@ -1426,17 +1429,17 @@ a.is-placeholder-link{
           </div>
           <div class="project-actions">
             <a href="[YOUR_GITHUB_PROJECT_LINK]" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub</a>
-            <a href="[YOUR_DEMO_LINK]" class="btn btn-ghost btn-sm btn-disabled" target="_blank" rel="noopener" aria-disabled="true">Live Demo</a>
+            <a href="https://skin-cancer-detection-smy9.onrender.com/" class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer">Live Demo</a>
             <button class="btn btn-primary btn-sm project-details-btn"
               data-title="Melanoma Skin Cancer Detection"
               data-tech="Python, CNN / Deep Learning, Web UI"
               data-problem="Melanoma is dangerous if caught late, and manual visual assessment of skin lesions is slow and depends heavily on the examiner's experience. This project explores an automated, image-based classification approach to help flag lesions for further review."
               data-solution="Built a convolutional neural network (CNN) trained to classify skin lesion images for melanoma detection, paired with a web-based interface so predictions can be viewed through a browser rather than run from a script."
               data-features="Image upload through a web interface|CNN-based image classification|Image preprocessing pipeline for lesion analysis"
-              data-challenges="[CHALLENGES — what was technically difficult about this project]"
-              data-results="[RESULTS — accuracy/metrics once you have numbers you can share]"
+              data-challenges="Handling variations in skin lesion images, including differences in lighting, image quality, size, and appearance.|Preparing and processing dermatology image datasets such as HAM10000 and ISIC for reliable model input.|Reducing false predictions and improving classification reliability.|Integrating the trained machine-learning model into a Flask web application for image-based prediction.|Deploying the application while managing limited server memory and inference-resource constraints."
+              data-results="Developed a functional machine-learning based skin cancer detection web application.|Integrated image processing and model inference into a Flask-based interface.|Enabled users to upload skin lesion images and receive a model prediction.|Successfully deployed the application as a live web demo.|Demonstrates the practical integration of machine learning, computer vision, Flask, and web technologies into an end-to-end application."
               data-github="[YOUR_GITHUB_PROJECT_LINK]"
-              data-demo="[YOUR_DEMO_LINK]">
+              data-demo="https://skin-cancer-detection-smy9.onrender.com/">
               View Details
             </button>
           </div>
@@ -1480,11 +1483,11 @@ a.is-placeholder-link{
     </div>
     <div class="modal-section">
       <h5>Challenges</h5>
-      <p id="modalChallenges"></p>
+      <ul id="modalChallenges"></ul>
     </div>
     <div class="modal-section">
       <h5>Results</h5>
-      <p id="modalResults"></p>
+      <ul id="modalResults"></ul>
     </div>
 
     <div class="modal-actions">
@@ -1557,7 +1560,6 @@ a.is-placeholder-link{
         <div class="education-institution">SRM Institute of Science and Technology, Kattankulathur</div>
       </div>
       <div class="education-meta">
-        <div class="education-meta-item"><strong>6.99/10</strong>CGPA</div>
         <div class="education-meta-item"><strong>2026</strong>Graduating</div>
       </div>
     </div>
@@ -1619,7 +1621,7 @@ a.is-placeholder-link{
         </div>
         <div class="contact-info-item">
           <span class="contact-info-label">LOCATION</span>
-          <span class="contact-info-value">Kattankulathur, India</span>
+          <span class="contact-info-value">Lucknow, India</span>
         </div>
       </div>
 
@@ -2002,8 +2004,21 @@ window.PortfolioLinks = (function(){
       featuresEl.appendChild(li);
     });
 
-    challengesEl.textContent = data.challenges;
-    resultsEl.textContent = data.results;
+    challengesEl.innerHTML = '';
+    data.challenges.split('|').forEach(function(c){
+      if (!c.trim()) return;
+      var li = document.createElement('li');
+      li.textContent = c.trim();
+      challengesEl.appendChild(li);
+    });
+
+    resultsEl.innerHTML = '';
+    data.results.split('|').forEach(function(r){
+      if (!r.trim()) return;
+      var li = document.createElement('li');
+      li.textContent = r.trim();
+      resultsEl.appendChild(li);
+    });
     githubEl.href = data.github;
     demoEl.href = data.demo;
     if (window.PortfolioLinks){
